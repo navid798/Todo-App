@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Button } from "react-native";
 import { useRoute } from "@react-navigation/native";
 
 const ShowTodo = ({ navigation }) => {
@@ -7,11 +7,22 @@ const ShowTodo = ({ navigation }) => {
 
   return (
     <View>
-      <Text style={styles.title}>Todo Title:</Text>
+      <View style={styles.Viewshowtodo}>
+        <Text style={styles.title}>Todo Title:</Text>
 
-      <Text>{route.params.title}</Text>
-      <Text style={styles.content}>My Todo Is:</Text>
-      <Text>{route.params.content}</Text>
+        <Text>{route.params.title}</Text>
+
+        <Text style={styles.content}>My Todo Is:</Text>
+
+        <Text>{route.params.content}</Text>
+      </View>
+
+      <View style={styles.Button}>
+        <Button
+          title="edit todo"
+          onPress={() => navigation.navigate("EditTodo")}
+        />
+      </View>
     </View>
   );
 };
@@ -24,6 +35,13 @@ const styles = StyleSheet.create({
   content: {
     fontSize: 30,
     fontWeight: "bold",
+  },
+  Button: {
+    marginTop: 30,
+    marginHorizontal: 25,
+  },
+  Viewshowtodo: {
+    marginLeft: 20,
   },
 });
 
