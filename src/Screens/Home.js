@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import { StyleSheet, View, Text, Button, FlatList } from "react-native";
+import { StyleSheet, View, Text, FlatList } from "react-native";
 import Icon from "react-native-ionicons";
 import Context from "../../Context";
 
 const Home = () => {
-  const { state, addtodo } = useContext(Context);
+  const { state } = useContext(Context);
   return (
     <View>
       <FlatList
@@ -28,9 +28,6 @@ const Home = () => {
           );
         }}
       />
-      <View style={styles.Button}>
-        <Button title="add" onPress={addtodo} color="red" />
-      </View>
     </View>
   );
 };
