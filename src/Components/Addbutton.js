@@ -1,11 +1,15 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import Icon from "react-native-ionicons";
+import { useNavigation } from "@react-navigation/native";
+//import Context from "../../Context";
 
-const AddButton = ({ onPress }) => {
+const AddButton = () => {
+  const navigation = useNavigation();
+  //const { addtodo } = useContext(Context);
   return (
     <View style={styles.Button}>
-      <Icon name="add" onPress={onPress} />
+      <Icon name="add" onPress={() => navigation.navigate("CreateTodo")} />
     </View>
   );
 };

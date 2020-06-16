@@ -12,7 +12,8 @@ const reducer = (state, action) => {
         ...state,
         {
           id: Math.floor(Math.random() * 9999),
-          title: `Todo Number ${state.length + 1}`,
+          title: action.payload.title,
+          content: action.payload.content,
         },
       ];
     default:
@@ -23,8 +24,8 @@ const reducer = (state, action) => {
 export const Provider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, []);
 
-  const addtodo = () => {
-    return dispatch({ type: "ADD_TODO" });
+  const addtodo = ({ title, content }) => {
+    return dispatch({ type: "ADD_TODO", payload: { title, content } });
   };
 
   const deletetodo = id => {

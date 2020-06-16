@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { StyleSheet, View, Text, FlatList } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-ionicons";
 import Context from "../../Context";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const { state, deletetodo } = useContext(Context);
   return (
     <View>
@@ -12,21 +13,20 @@ const Home = () => {
         keyExtractor={state => state.title}
         renderItem={({ item }) => {
           return (
-            <View
-              style={{
-                marginHorizontal: 15,
-                borderBottomWidth: 1,
-                paddingBottom: 25,
-                paddingTop: 25,
-                flexDirection: "row",
-                justifyContent: "space-between",
-              }}
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("ShowTodo", {
+                  title: item.title,
+                  content: item.content,
+                })}
             >
-              <Text>
-                {item.title}-{item.id}
-              </Text>
-              <Icon name="trash" onPress={() => deletetodo(item.id)} />
-            </View>
+              <View style={styles.todoView}>
+                <Text>{item.title}</Text>
+                <TouchableOpacity onPress={() => deletetodo(item.id)}>
+                  <Icon name="trash" style={styles.trash} />
+                </TouchableOpacity>
+              </View>
+            </TouchableOpacity>
           );
         }}
       />
@@ -35,7 +35,15 @@ const Home = () => {
 };
 export default Home;
 const styles = StyleSheet.create({
-  Button: {
-    margin: 30,
+  todoView: {
+    marginHorizontal: 15,
+    borderBottomWidth: 1,
+    paddingBottom: 25,
+    paddingTop: 25,
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  trash: {
+    padding: 7,
   },
 });

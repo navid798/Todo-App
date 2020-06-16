@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import Context from "../../Context";
+import React from "react";
 import AddButton from "../Components/Addbutton";
 import CreateTodo from "../Screens/CreateTodo";
 import EditTodo from "../Screens/EditTodo";
@@ -9,7 +8,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 const Stack = createStackNavigator();
 
 const SwitchNavigator = () => {
-  const { addtodo } = useContext(Context);
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -17,7 +15,7 @@ const SwitchNavigator = () => {
         options={({ navigation }) => ({
           title: "All My Todo",
           headerTitleAlign: "center",
-          headerRight: () => <AddButton onPress={addtodo} />,
+          headerRight: () => <AddButton />,
         })}
       >
         {props => <Home {...props} />}
