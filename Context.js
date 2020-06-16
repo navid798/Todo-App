@@ -5,7 +5,7 @@ const Context = React.createContext();
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_TODO":
-      return [...state, { title: `Todo Post Number ${state.length + 1}` }];
+      return [...state, { title: `Todo Number ${state.length + 1}` }];
     default:
       return state;
   }
