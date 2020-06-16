@@ -22,7 +22,9 @@ const reducer = (state, action) => {
 };
 
 export const Provider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, []);
+  const [state, dispatch] = useReducer(reducer, [
+    { title: "initial Todo", content: "initial content" },
+  ]);
 
   const addtodo = ({ title, content }) => {
     return dispatch({ type: "ADD_TODO", payload: { title, content } });
