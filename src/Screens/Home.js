@@ -21,7 +21,7 @@ const Home = ({ navigation }) => {
                 })}
             >
               <View style={styles.todoView}>
-                <Text>{item.title}</Text>
+                <Text style={styles.TodoTitle}>{item.title}</Text>
                 <TouchableOpacity onPress={() => deletetodo(item.id)}>
                   <Icon name="trash" style={styles.trash} />
                 </TouchableOpacity>
@@ -45,5 +45,9 @@ const styles = StyleSheet.create({
   },
   trash: {
     padding: 7,
+  },
+  TodoTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
   },
 });
