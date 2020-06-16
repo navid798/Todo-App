@@ -4,7 +4,7 @@ import Icon from "react-native-ionicons";
 import Context from "../../Context";
 
 const Home = () => {
-  const { state } = useContext(Context);
+  const { state, deletetodo } = useContext(Context);
   return (
     <View>
       <FlatList
@@ -22,8 +22,10 @@ const Home = () => {
                 justifyContent: "space-between",
               }}
             >
-              <Text>{item.title}</Text>
-              <Icon name="trash" />
+              <Text>
+                {item.title}-{item.id}
+              </Text>
+              <Icon name="trash" onPress={() => deletetodo(item.id)} />
             </View>
           );
         }}
