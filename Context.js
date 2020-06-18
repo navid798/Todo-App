@@ -31,7 +31,7 @@ const reducer = (state, action) => {
 };
 
 export const Provider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, [
+  const [todos, dispatch] = useReducer(reducer, [
     { title: "initial Todo", content: "initial content", id: 1 },
   ]);
 
@@ -46,7 +46,7 @@ export const Provider = ({ children }) => {
   };
 
   return (
-    <Context.Provider value={{ state, addtodo, deletetodo, edittodo }}>
+    <Context.Provider value={{ todos, addtodo, deletetodo, edittodo }}>
       {children}
     </Context.Provider>
   );
