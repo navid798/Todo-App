@@ -12,7 +12,7 @@ const EditTodo = ({ navigation }) => {
   const id = route.params.id;
 
   return (
-<<<<<<< HEAD
+
     <View>
       <View style={styles.textView}>
         <Text style={styles.Text}>Edit Todo</Text>
@@ -40,7 +40,7 @@ const EditTodo = ({ navigation }) => {
           }}
         />
       </View>
-=======
+
 
     <View>
       <Text>Edit Todo</Text>
@@ -48,16 +48,15 @@ const EditTodo = ({ navigation }) => {
     <View >
       <Text>Edit</Text>
 
->>>>>>> 4851f80fdfe47e9b1c3f4b3a1cfbfaf15218c3dc
+
     </View>
   );
 };
 
-<<<<<<< HEAD
-=======
-const styles = StyleSheet.create({});
 
->>>>>>> 4851f80fdfe47e9b1c3f4b3a1cfbfaf15218c3dc
+
+
+
 const styles = StyleSheet.create({
   TextInput: {
     margin: 20,
