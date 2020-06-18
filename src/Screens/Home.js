@@ -10,7 +10,7 @@ import Icon from "react-native-ionicons";
 import Context from "../../Context";
 
 const Home = ({ navigation }) => {
-  const { tods, deletetodo } = useContext(Context);
+  const { todos, deletetodo } = useContext(Context);
   return (
     <View>
       <FlatList
