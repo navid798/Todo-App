@@ -1,6 +1,11 @@
 import React, { useContext } from "react";
-import { StyleSheet, View, Text, FlatList } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import {
+  StyleSheet,
+  View,
+  Text,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
 import Icon from "react-native-ionicons";
 import Context from "../../Context";
 
@@ -18,10 +23,14 @@ const Home = ({ navigation }) => {
                 navigation.navigate("ShowTodo", {
                   title: item.title,
                   content: item.content,
+                  id: item.id,
                 })}
             >
               <View style={styles.todoView}>
-                <Text style={styles.TodoTitle}>{item.title}</Text>
+                <Text style={styles.TodoTitle}>
+                  {item.title}-{item.id}
+                </Text>
+
                 <TouchableOpacity onPress={() => deletetodo(item.id)}>
                   <Icon name="trash" style={styles.trash} />
                 </TouchableOpacity>

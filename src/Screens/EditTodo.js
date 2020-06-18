@@ -1,25 +1,62 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React, { useState, useContext } from "react";
+import { StyleSheet, Text, View, TextInput, Button } from "react-native";
+import Context from "../../Context";
+import { useRoute } from "@react-navigation/native";
 
-const EditTodo = () => {
+const EditTodo = ({ navigation }) => {
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const { edittodo } = useContext(Context);
+
+  const route = useRoute();
+  const id = route.params.id;
+
   return (
-<<<<<<< HEAD
     <View>
-      <Text>Edit Todo</Text>
-=======
-    <View >
-      <Text>Edit</Text>
->>>>>>> df0f07cef44e6480a34e218ed7a35b8e59580725
+      <View style={styles.textView}>
+        <Text style={styles.Text}>Edit Todo</Text>
+      </View>
+
+      <TextInput
+        placeholder="Title"
+        style={styles.TextInput}
+        onChangeText={text => setTitle(text)}
+        value={title}
+      />
+      <TextInput
+        placeholder="content"
+        style={styles.TextInput}
+        value={content}
+        onChangeText={text => setContent(text)}
+      />
+      <Text>{route.params.id}</Text>
+      <View style={styles.Button}>
+        <Button
+          title="Edit todo"
+          onPress={() => {
+            edittodo({ title, content, id });
+            navigation.navigate("Home");
+          }}
+        />
+      </View>
     </View>
   );
 };
 
-<<<<<<< HEAD
-const styles = StyleSheet.create({});
-=======
 const styles = StyleSheet.create({
-  
+  TextInput: {
+    margin: 20,
+    backgroundColor: "#bbcfd5",
+  },
+  textView: {
+    alignItems: "center",
+  },
+  Text: {
+    fontSize: 40,
+  },
+  Button: {
+    marginHorizontal: 20,
+  },
 });
->>>>>>> df0f07cef44e6480a34e218ed7a35b8e59580725
 
 export default EditTodo;

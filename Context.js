@@ -16,6 +16,15 @@ const reducer = (state, action) => {
           content: action.payload.content,
         },
       ];
+    case "EDIT_TODO":
+      return [
+        ...state,
+        {
+          id: action.payload.id,
+          title: action.payload.title,
+          content: action.payload.content,
+        },
+      ];
     default:
       return state;
   }
@@ -23,19 +32,21 @@ const reducer = (state, action) => {
 
 export const Provider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, [
-    { title: "initial Todo", content: "initial content" },
+    { title: "initial Todo", content: "initial content", id: 1 },
   ]);
 
   const addtodo = ({ title, content }) => {
     return dispatch({ type: "ADD_TODO", payload: { title, content } });
   };
-
+  const edittodo = ({ title, content, id }) => {
+    return dispatch({ type: "EDIT_TODO", payload: { title, content, id } });
+  };
   const deletetodo = id => {
     return dispatch({ type: "DELETE_TODO", payload: id });
   };
 
   return (
-    <Context.Provider value={{ state, addtodo, deletetodo }}>
+    <Context.Provider value={{ state, addtodo, deletetodo, edittodo }}>
       {children}
     </Context.Provider>
   );

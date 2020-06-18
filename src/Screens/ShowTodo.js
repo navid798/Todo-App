@@ -4,6 +4,7 @@ import { useRoute } from "@react-navigation/native";
 
 const ShowTodo = ({ navigation }) => {
   const route = useRoute();
+  const id = route.params.id;
 
   return (
     <View>
@@ -19,8 +20,18 @@ const ShowTodo = ({ navigation }) => {
 
       <View style={styles.Button}>
         <Button
+          title="navigate to home"
+          onPress={() => navigation.navigate("Home")}
+        />
+      </View>
+
+      <View style={styles.Button}>
+        <Button
           title="edit todo"
-          onPress={() => navigation.navigate("EditTodo")}
+          onPress={() => {
+            navigation.navigate("EditTodo", { id });
+          }}
+          color="red"
         />
       </View>
     </View>
