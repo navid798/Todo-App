@@ -4,7 +4,10 @@ import CreateTodo from "../Screens/CreateTodo";
 import EditTodo from "../Screens/EditTodo";
 import Home from "../Screens/Home";
 import ShowTodo from "../Screens/ShowTodo";
+
 import { createStackNavigator } from "@react-navigation/stack";
+
+
 const Stack = createStackNavigator();
 
 const SwitchNavigator = () => {
@@ -48,4 +51,5 @@ const SwitchNavigator = () => {
     </Stack.Navigator>
   );
 };
+
 export default SwitchNavigator;
