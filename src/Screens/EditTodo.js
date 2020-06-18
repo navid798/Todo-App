@@ -6,7 +6,7 @@ import { useRoute } from "@react-navigation/native";
 const EditTodo = ({ navigation }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const { edittodo } = useContext(Context);
+  const { edittodo, deletetodo } = useContext(Context);
 
   const route = useRoute();
   const id = route.params.id;
@@ -29,11 +29,11 @@ const EditTodo = ({ navigation }) => {
         value={content}
         onChangeText={text => setContent(text)}
       />
-      <Text>{route.params.id}</Text>
       <View style={styles.Button}>
         <Button
           title="Edit todo"
           onPress={() => {
+            deletetodo(id);
             edittodo({ title, content, id });
             navigation.navigate("Home");
           }}

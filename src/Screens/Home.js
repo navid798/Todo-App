@@ -27,9 +27,7 @@ const Home = ({ navigation }) => {
                 })}
             >
               <View style={styles.todoView}>
-                <Text style={styles.TodoTitle}>
-                  {item.title}-{item.id}
-                </Text>
+                <Text style={styles.TodoTitle}>{item.title}</Text>
 
                 <TouchableOpacity onPress={() => deletetodo(item.id)}>
                   <Icon name="trash" style={styles.trash} />
