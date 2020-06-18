@@ -21,7 +21,7 @@ const CreateTodo = ({ navigation }) => {
       />
       <TextInput
         placeholder="content"
-        style={styles.TextInput}
+        style={styles.TextInputcontent}
         value={content}
         onChangeText={text => setContent(text)}
       />
@@ -51,5 +51,10 @@ const styles = StyleSheet.create({
   },
   Button: {
     marginHorizontal: 20,
+  },
+  TextInputcontent: {
+    margin: 20,
+    backgroundColor: "#bbcfd5",
+    paddingBottom: 170,
   },
 });
