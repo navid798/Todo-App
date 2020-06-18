@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   trash: {
-    padding: 7,
+    padding: 8,
   },
   TodoTitle: {
     fontSize: 20,
