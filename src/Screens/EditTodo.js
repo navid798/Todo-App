@@ -3,9 +3,13 @@ import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import Context from "../../Context";
 import { useRoute } from "@react-navigation/native";
 
+
+
 const EditTodo = ({ navigation }) => {
+  
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  
   const { edittodo, deletetodo } = useContext(Context);
 
   const route = useRoute();
